@@ -1,19 +1,18 @@
-import React from "react";
 import "./Slider.style.css";
-import { usePopularMovies } from "../../hook/usePopularMovie";
-const Slider = () => {
-  const { isLoading, data, isError, error } = usePopularMovies();
-  console.log("dddddd", data);
-  console.log("eee", error);
+const Slider = ({ data }) => {
+  const result = data?.results;
   return (
     <div>
       <h3>Popular</h3>
-      <div
-        className="poster-area"
-        style={{
-          backgroundImage: `url("https://www.themoviedb.org/t/p/w220_and_h330_face//hBj1aTnGf4564Klv9yIbSuB7Y8w.jpg&quot")`,
-        }}
-      ></div>
+      {result.map((movie) => (
+        <div
+          className="poster-area"
+          style={{
+            backgroundImage: `url("https://www.themoviedb.org/t/p/w220_and_h330_face//${movie?.backdrop_path}.jpg&quot")`,
+          }}
+          key={movie?.id}
+        ></div>
+      ))}
     </div>
   );
 };
