@@ -1,0 +1,12 @@
+.banner-area {
+  min-height: 300px;
+  display: flex;
+}
+.banner-text-area {
+  max-width: 50%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+}
